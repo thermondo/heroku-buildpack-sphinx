@@ -8,5 +8,7 @@ echo "compile"
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
+echo $BIN_DIR
+
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
