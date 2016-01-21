@@ -5,5 +5,8 @@ set -eo pipefail
 
 echo "compile"
 
-source bin/activate
-pip install -r docs/requirements.txt
+# Paths.
+BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
+
+# Install dependencies with Pip.
+source $BIN_DIR/steps/pip-install
