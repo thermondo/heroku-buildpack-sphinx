@@ -5,5 +5,3 @@
 echo "detect"
 echo "build_dir"
 echo $BUILD_DIR
-
-pip install -r docs/requirements.txt

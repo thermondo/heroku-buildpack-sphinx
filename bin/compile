@@ -2,3 +2,6 @@
 # bin/compile <build-dir> <cache-dir>
 
 set -eo pipefail
+
+echo "compile"
+pip install -r docs/requirements.txt
