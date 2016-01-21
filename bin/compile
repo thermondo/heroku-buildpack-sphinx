@@ -4,4 +4,6 @@
 set -eo pipefail
 
 echo "compile"
+
+source bin/activate
 pip install -r docs/requirements.txt
