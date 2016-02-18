@@ -5,6 +5,13 @@ set -eo pipefail
 
 echo "compile"
 
+echo pwd1
+pwd
+echo ls1
+ls
+
+
+
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
@@ -16,6 +23,11 @@ echo $BIN_DIR
 
 # Install dependencies with Pip.
 echo "Installing docs dependencies with pip"
+
+echo pwd2
+pwd
+echo ls2
+ls
 
 set +e
 /app/.heroku/python/bin/pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
