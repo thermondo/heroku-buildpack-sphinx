@@ -1,5 +1,5 @@
 set -e
 
 PATH=/app/graphviz/bin:$PATH
-(cd ${BUILD_DIR}/docs && make apidoc html)
 pip install static waitress wsgi-oauth2
+(cd ${BUILD_DIR}/docs && make apidoc html)
