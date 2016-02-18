@@ -11,14 +11,9 @@ ROOT_DIR=$(dirname $BIN_DIR)
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
-ls
-pwd
-
-ls $ROOT_DIR
 
 cat $ROOT_DIR/requirements.txt >> ${BUILD_DIR}/requirements.txt
 
-(cd ${BUILD_DIR}/docs && make apidoc html)
-
-cp $ROOT_DIR/Profile ${BUILD_DIR}
+cp $ROOT_DIR/Procfile ${BUILD_DIR}
 cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
+cp $ROOT_DIR/post_compile ${BUILD_DIR}/bin/post_compile
