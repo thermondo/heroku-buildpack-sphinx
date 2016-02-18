@@ -1,1 +1,2 @@
 (cd ${BUILD_DIR}/docs && make apidoc html)
+pip install static waitress

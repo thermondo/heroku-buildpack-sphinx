@@ -12,8 +12,11 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-cat $ROOT_DIR/requirements.txt >> ${BUILD_DIR}/requirements.txt
+cat $BUILD_DIR/docs/requirements.txt >> ${BUILD_DIR}/requirements.txt
+# cat $ROOT_DIR/requirements.txt >> ${BUILD_DIR}/requirements.txt
 
 cp $ROOT_DIR/Procfile ${BUILD_DIR}
 cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
+
+# post_compile will be executed by Python buildpack
 cp $ROOT_DIR/post_compile ${BUILD_DIR}/bin/post_compile
