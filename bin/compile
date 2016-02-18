@@ -3,24 +3,21 @@
 
 set -eo pipefail
 
-echo "compile"
+echo "FROM COMPILE"
 
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
-
-echo ls bin/
-ls bin/
-
-echo BIN_DIR
-echo $BIN_DIR
-ls bin/
+ROOT_DIR=$(dirname $BIN_DIR)
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 
 
 # Install dependencies with Pip.
 echo "Installing docs dependencies with pip"
 
 set +e
-/app/.heroku/python/bin/pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
+$BUILD_DIR/.heroku/python/bin/pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
 PIP_STATUS="${PIPESTATUS[0]}"
 set -e
 
