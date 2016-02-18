@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BUILD_DIR=$1
+# BUILD_DIR=$1
 
 #
 # # Exit early if app is clearly not Python.
@@ -12,3 +12,5 @@ BUILD_DIR=$1
 
 echo FROM DETECT
 echo BUILD_DIR is $BUILD_DIR
+echo $0
+echo $1
