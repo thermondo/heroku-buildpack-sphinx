@@ -11,4 +11,21 @@ BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 echo $BIN_DIR
 
 # Install dependencies with Pip.
-source $BIN_DIR/steps/pip-install
+#source $BIN_DIR/steps/pip-install
+
+
+# Install dependencies with Pip.
+echo "Installing docs dependencies with pip"
+
+set +e
+/app/.heroku/python/bin/pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
+PIP_STATUS="${PIPESTATUS[0]}"
+set -e
+
+if [[ ! $PIP_STATUS -eq 0 ]]; then
+    echo
+    show-warnings
+    exit 1
+fi
+
+echo
