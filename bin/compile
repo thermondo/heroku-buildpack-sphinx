@@ -18,7 +18,7 @@ ls $ROOT_DIR
 
 cat $ROOT_DIR/requirements.txt >> ${BUILD_DIR}/requirements.txt
 
-(cd ${BUILD_DIR} && make apidoc html)
+(cd ${BUILD_DIR}/docs && make apidoc html)
 
 cp $ROOT_DIR/Profile ${BUILD_DIR}
 cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
