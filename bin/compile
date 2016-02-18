@@ -12,9 +12,9 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-cat ${ROOT_DIR}/requirements.txt >> ${BUILD_DIR}/requirements.txt
+cat requirements.txt >> ${BUILD_DIR}/requirements.txt
 
-(cd ${BUILD_DIR} && make apidoc html)
+(cd ${BUILD_DIR}/docs && make apidoc html)
 
-cp ${ROOT_DIR}/Profile ${BUILD_DIR}
-cp ${ROOT_DIR}/wsgi.py ${BUILD_DIR}
+cp Profile ${BUILD_DIR}
+cp wsgi.py ${BUILD_DIR}
