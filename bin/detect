@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-# bin/detect <build-dir>
 
+BUILD_DIR=$1
 
-echo "detect"
-echo "build_dir"
-echo $BUILD_DIR
+#
+# # Exit early if app is clearly not Python.
+# if [ ! -f $BUILD_DIR/requirements.txt ] && [ ! -f $BUILD_DIR/setup.py ]; then
+#   exit 1
+# fi
+#
+# echo Python
+
+echo FROM DETECT
+echo BUILD_DIR is $BUILD_DIR
