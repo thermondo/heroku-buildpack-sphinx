@@ -18,12 +18,10 @@ echo $BUILD_DIR
 echo $CACHE_DIR
 echo $ENV_DIR
 
-PIP=/app/.heroku/python/bin/pip
-
 # Install dependencies with Pip.
 echo "Installing docs dependencies with pip"
-$PIP install -r ${ROOT_DIR}/app/docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir
-$PIP install -U static waitress
+/app/.heroku/python/bin/pip install -r ${ROOT_DIR}/app/docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir
+/app/.heroku/python/bin/pip install -U static waitress
 
 (cd ${BUILD_DIR} && make apidoc html)
 
