@@ -9,8 +9,8 @@
 # fi
 #
 # echo Python
-
-echo FROM DETECT
-echo BUILD_DIR is $BUILD_DIR
-echo $0
-echo $1
+# 
+# echo FROM DETECT
+# echo BUILD_DIR is $BUILD_DIR
+# echo $0
+# echo $1

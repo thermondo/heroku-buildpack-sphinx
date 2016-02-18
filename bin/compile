@@ -19,7 +19,7 @@ echo "Installing docs dependencies with pip"
 echo ${BUILD_DIR}/docs/requirements.txt
 
 set +e
-/app/.heroku/python/bin/pip install -r ${BUILD_DIR}/docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir
+/app/.heroku/python/bin/pip install -r sphinx --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir
 PIP_STATUS="${PIPESTATUS[0]}"
 set -e
 
