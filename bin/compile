@@ -30,7 +30,7 @@ echo ls2
 ls
 
 set +e
-/app/.heroku/python/bin/pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
+pip install -r docs/requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external --disable-pip-version-check --no-cache-dir | cleanup | log-output | indent
 PIP_STATUS="${PIPESTATUS[0]}"
 set -e
 
