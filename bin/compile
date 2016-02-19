@@ -11,7 +11,6 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 cat $BUILD_DIR/docs/requirements.txt >> ${BUILD_DIR}/requirements.txt
-# cat $ROOT_DIR/requirements.txt >> ${BUILD_DIR}/requirements.txt
 
 cp $ROOT_DIR/Procfile ${BUILD_DIR}
 cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
