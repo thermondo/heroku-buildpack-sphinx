@@ -1,6 +1,8 @@
 import os
-import static
+
 import requests
+import static
+from wsgi_sslify import sslify
 from wsgioauth2 import Service
 
 application = static.Cling('/app/docs/_build/html')
@@ -48,3 +50,4 @@ client = google.make_client(
 
 
 application = client.wsgi_middleware(application, secret=secret.encode('utf-8'), path='/oauth2/')
+application = sslify(application, proxy_header='X-Forwarded-Proto')
