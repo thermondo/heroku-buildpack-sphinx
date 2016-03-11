@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 set -e
 
 PATH=/app/graphviz/bin:$PATH
-pip install static waitress wsgi-oauth2 requests wsgi-sslify
+pip install static waitress
 (cd ${BUILD_DIR}/docs && make apidoc html)
