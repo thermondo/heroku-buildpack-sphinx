@@ -15,14 +15,11 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+# Add $BUILD_DIR/docs/requirements.txt to application requirements
 cat $BUILD_DIR/docs/requirements.txt >> ${BUILD_DIR}/requirements.txt
 
-# Override Procfile from $BUILD_DIR/docs folder or use the default one
-if [ -f $BUILD_DIR/docs/Procfile ]; then
-  cp $BUILD_DIR/docs/Procfile ${BUILD_DIR}
-else
-  cp $ROOT_DIR/Procfile ${BUILD_DIR}
-fi
+# Override Procfile from $ROOT_DIR
+cp $ROOT_DIR/Procfile ${BUILD_DIR}
 
 # Override wsgi file from $BUILD_DIR/docs folder or use the default one
 if [ -f $BUILD_DIR/docs/wsgi.py ]; then
