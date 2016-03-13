@@ -2,6 +2,14 @@
 
 set -e
 
+# Set graphviz path
 PATH=/app/graphviz/bin:$PATH
-pip install static waitress
+
+# All requirements of wsgi.py
+pip install static
+
+# Needed to serve the application (Procfile)
+pip install waitress
+
+# Build Sphinx documentation
 (cd ${BUILD_DIR}/docs && make apidoc html)
