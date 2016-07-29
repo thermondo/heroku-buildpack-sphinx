@@ -22,12 +22,12 @@ heroku buildpacks:set https://github.com/weibeld/heroku-buildpack-graphviz.git
 
 *  Setup sphinx-heroku-buildpack
 ```shell
-heroku buildpacks:set https://github.com/Thermondo/sphinx-heroku-buildpack.git
+heroku buildpacks:add --index 2 https://github.com/Thermondo/sphinx-heroku-buildpack.git
 ```
 
 * Finally setup heroku's official python buildpack
 ```shell
-heroku buildpacks:set heroku/python
+heroku buildpacks:add --index 3 heroku/python
 ```
 
 When listing the buildpacks on our application, we get this result:
