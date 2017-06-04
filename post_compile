@@ -19,5 +19,9 @@ else
   pip install -r ${BUILD_DIR}/docs/requirements.txt
 fi;
 
+# Get sphinx build-dir
+echo -e "\necho-build-dir:\n\t@echo '\$(BUILDDIR)'\n" >> ${BUILD_DIR}/docs/Makefile
+(cd ${BUILD_DIR}/docs && make echo-build-dir > ${BUILD_DIR}/docs/.build-dir)
+
 # Build Sphinx documentation
 (cd ${BUILD_DIR}/docs && make html)
