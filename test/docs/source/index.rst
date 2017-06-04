@@ -12,6 +12,16 @@ Welcome to Test Project's documentation!
 
 
 
+Test graphviz
+=============
+
+.. graphviz::
+
+   digraph foo {
+      "bar" -> "baz";
+   }
+
+
 Indices and tables
 ==================
 
