@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t sphinx .
+  - docker run -d -p 5000:5000 -e PORT=5000 sphinx:latest
+  - curl --fail localhost:5000
