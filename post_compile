@@ -3,7 +3,9 @@
 set -e
 
 # Set graphviz path
-PATH=/app/heroku-buildpack-graphviz/usr/bin:${PATH}
+export PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin:${PATH}
+export GRAPHVIZ_DOT=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin/dot
+export LD_LIBRARY_PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/lib:${PATH}
 
 # All requirements of wsgi.py
 pip install static
