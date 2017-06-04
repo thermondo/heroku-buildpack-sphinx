@@ -30,5 +30,6 @@ fi
 if [ -f $BUILD_DIR/docs/post_compile ]; then
   cp $BUILD_DIR/docs/post_compile ${BUILD_DIR}/bin/post_compile
 else
+  mkdir -p ${BUILD_DIR}/bin
   cp $ROOT_DIR/post_compile ${BUILD_DIR}/bin/post_compile
 fi

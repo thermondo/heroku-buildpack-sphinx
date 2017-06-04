@@ -11,7 +11,17 @@ pip install static
 # Needed to serve the application (Procfile)
 pip install waitress
 
-pip install -r ${BUILD_DIR}/docs/requirements.txt
+if [[ ! -f ${BUILD_DIR}/docs/requirements.txt ]]; then
+  echo "docs/requirements.txt not found"
+  echo "installing Sphinx"
+  pip install -q Sphinx
+else
+  pip install -r ${BUILD_DIR}/docs/requirements.txt
+fi;
+
+# Get sphinx build-dir
+echo -e "\necho-build-dir:\n\t@echo '\$(BUILDDIR)'\n" >> ${BUILD_DIR}/docs/Makefile
+(cd ${BUILD_DIR}/docs && make echo-build-dir > ${BUILD_DIR}/docs/.build-dir)
 
 # Build Sphinx documentation
-(cd ${BUILD_DIR}/docs && make apidoc html)
+(cd ${BUILD_DIR}/docs && make html)
