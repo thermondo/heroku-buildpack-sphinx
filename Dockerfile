@@ -3,6 +3,8 @@ FROM heroku/heroku:16-build
 
 WORKDIR /app
 
+ENV STACK=heroku-16
+
 RUN mkdir -p /app/builds /var/env /tmp/build-cache /tmp/sphinx-heroku-buildpack /app/docs
 
 # Install heroku cli
@@ -16,6 +18,10 @@ COPY ./test/docs /app/docs
 
 # Setup fake heroku Python app
 RUN echo "pip" > /app/requirements.txt
+
+# Install Graphviz buildpack
+RUN curl -sLo- https://github.com/weibeld/heroku-buildpack-graphviz/archive/master.tar.gz | tar xzf - -C /tmp
+RUN /tmp/heroku-buildpack-graphviz-master/bin/compile /app /var/env /var/build-cache
 
 # Install Sphinx buildpack
 RUN /tmp/sphinx-heroku-buildpack/bin/compile /app /var/env /tmp/build-cache

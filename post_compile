@@ -3,7 +3,7 @@
 set -e
 
 # Set graphviz path
-PATH=/app/graphviz/bin:$PATH
+PATH=/app/heroku-buildpack-graphviz/usr/bin:${PATH}
 
 # All requirements of wsgi.py
 pip install static
