@@ -1,4 +1,8 @@
 # Sphinx Heroku Buildpack
+
+[![Build Status](https://travis-ci.org/Thermondo/heroku-buildpack-sphinx.svg?branch=master)](https://travis-ci.org/Thermondo/heroku-buildpack-sphinx)
+[![Latest Release](https://img.shields.io/github/tag/Thermondo/heroku-buildpack-sphinx.svg)](https://github.com/Thermondo/heroku-buildpack-sphinx/releases)
+
 A Heroku buildpack to generate launch a sphinx documentation based on the same repository.
 
 For more information read about [Heroku Buildpacks](https://devcenter.heroku.com/articles/buildpacks)
