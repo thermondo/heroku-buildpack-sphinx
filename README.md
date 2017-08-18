@@ -36,7 +36,7 @@ When listing the buildpacks on our application, we get this result:
 heroku buildpacks --app myapp-docs
 === myapp-docs Buildpack URLs
 1. https://github.com/weibeld/heroku-buildpack-graphviz.git     # If you need graphiz
-2. https://github.com/Thermondo/sphinx-heroku-buildpack.git
+2. https://github.com/Thermondo/heroku-buildpack-sphinx.git
 3. heroku/python
 ```
 
