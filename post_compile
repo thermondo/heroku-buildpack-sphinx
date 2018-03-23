@@ -42,4 +42,4 @@ echo -e "\necho-build-dir:\n\t@echo '\$(BUILDDIR)'\n" >> ${BUILD_DIR}/docs/Makef
 puts-step "Build Sphinx docs"
 
 # Build Sphinx documentation
-(cd ${BUILD_DIR}/docs && make html)
+(cd ${BUILD_DIR}/docs && make html) | indent
