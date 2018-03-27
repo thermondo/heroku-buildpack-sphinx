@@ -1,29 +1,45 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
+
+indent() {
+  sed "s/^/       /"
+}
+
+puts-step() {
+  echo "-----> $*"
+}
+
+puts-warn() {
+  echo " !     $*"
+}
+
 
 # Set graphviz path
 export PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin:${PATH}
 export GRAPHVIZ_DOT=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin/dot
 export LD_LIBRARY_PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/lib:${BUILD_DIR}/.heroku/vendor/lib/:${LD_LIBRARY_PATH}
 
+puts-step "Setting up Sphinx environment"
+
 # All requirements of wsgi.py
-pip install static
+pip install -q static | indent
 
 # Needed to serve the application (Procfile)
-pip install waitress
+pip install -q waitress | indent
 
 if [[ ! -f ${BUILD_DIR}/docs/requirements.txt ]]; then
-  echo "docs/requirements.txt not found"
-  echo "installing Sphinx"
+  puts-warn "docs/requirements.txt not found, installing Sphinx"
   pip install -q Sphinx
 else
-  pip install -r ${BUILD_DIR}/docs/requirements.txt
+  pip install -qr ${BUILD_DIR}/docs/requirements.txt
 fi;
 
 # Get sphinx build-dir
 echo -e "\necho-build-dir:\n\t@echo '\$(BUILDDIR)'\n" >> ${BUILD_DIR}/docs/Makefile
 (cd ${BUILD_DIR}/docs && make echo-build-dir > ${BUILD_DIR}/docs/.build-dir)
 
+puts-step "Build Sphinx docs"
+
 # Build Sphinx documentation
-(cd ${BUILD_DIR}/docs && make html)
+(cd ${BUILD_DIR}/docs && make html) | indent

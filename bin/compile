@@ -15,9 +15,14 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+# shellcheck source=utils.sh
+source "$BIN_DIR/utils.sh"
+
+puts-step "Change Procfile to serve Sphinx docs"
 # Override Procfile from $ROOT_DIR
 cp $ROOT_DIR/Procfile ${BUILD_DIR}
 
+puts-step "Copy WSGI configuration"
 # Override wsgi file from $BUILD_DIR/docs folder or use the default one
 if [ -f $BUILD_DIR/docs/wsgi.py ]; then
   cp $BUILD_DIR/docs/wsgi.py ${BUILD_DIR}
@@ -25,6 +30,7 @@ else
   cp $ROOT_DIR/wsgi.py ${BUILD_DIR}
 fi
 
+puts-step "Copy Sphinx specific post_compile script"
 # post_compile will be executed by Python buildpack
 # Override post_compile file from $BUILD_DIR/docs folder or use the default one
 if [ -f $BUILD_DIR/docs/post_compile ]; then
