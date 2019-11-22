@@ -16,9 +16,9 @@ puts-warn() {
 
 
 # Set graphviz path
-export PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin:${PATH}
-export GRAPHVIZ_DOT=${BUILD_DIR}/heroku-buildpack-graphviz/usr/bin/dot
-export LD_LIBRARY_PATH=${BUILD_DIR}/heroku-buildpack-graphviz/usr/lib:${BUILD_DIR}/.heroku/vendor/lib/:${LD_LIBRARY_PATH}
+export PATH=${BUILD_DIR}/.heroku-buildpack-graphviz/usr/bin:${PATH}
+export GRAPHVIZ_DOT=${BUILD_DIR}/.heroku-buildpack-graphviz/usr/bin/dot
+export LD_LIBRARY_PATH=${BUILD_DIR}/.heroku-buildpack-graphviz/usr/lib/x86_64-linux-gnu:${BUILD_DIR}/.heroku/vendor/lib/:${LD_LIBRARY_PATH}
 
 puts-step "Setting up Sphinx environment"
 
